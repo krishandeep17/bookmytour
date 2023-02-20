@@ -17,45 +17,10 @@ const reviewRouter = require("./routes/reviewRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
 const viewsRouter = require("./routes/viewsRoutes");
 
+// Start express app
 const app = express();
 
 // 1) GLOBAL MIDDLEWARE
-// Set security HTTP headers
-// npm i helmet
-// app.use(helmet({ contentSecurityPolicy: false }));
-// app.use(helmet());
-// const scriptSrcUrls = [
-//   "https://api.tiles.mapbox.com/",
-//   "https://api.mapbox.com/",
-//   "https://js.stripe.com/v3/",
-// ];
-// const styleSrcUrls = [
-//   "https://api.mapbox.com/",
-//   "https://api.tiles.mapbox.com/",
-//   "https://fonts.googleapis.com/",
-// ];
-// const connectSrcUrls = [
-//   "https://api.mapbox.com/",
-//   "https://a.tiles.mapbox.com/",
-//   "https://b.tiles.mapbox.com/",
-//   "https://events.mapbox.com/",
-//   "https://js.stripe.com/v3/",
-// ];
-// const fontSrcUrls = ["fonts.googleapis.com", "fonts.gstatic.com"];
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     directives: {
-//       defaultSrc: [],
-//       connectSrc: ["'self'", ...connectSrcUrls],
-//       scriptSrc: ["'self'", ...scriptSrcUrls],
-//       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-//       workerSrc: ["'self'", "blob:"],
-//       objectSrc: [],
-//       imgSrc: ["'self'", "blob:", "data:"],
-//       fontSrc: ["'self'", ...fontSrcUrls],
-//     },
-//   })
-// );
 
 // Development logging
 if (process.env.NODE_ENV === "development") {
@@ -93,9 +58,7 @@ app.use(
   })
 );
 
-//
 app.set("view engine", "pug");
-
 app.set("views", path.join(__dirname, "views"));
 
 // Serving Staic files
